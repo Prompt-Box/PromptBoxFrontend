@@ -10,7 +10,7 @@ function App() {
       <header className="App-header">
         <img src="https://i.imgur.com/N4C08eE.png" className="App-logo" alt="logo" />
         <p>
-          PromptBox!
+          PromptBox! Testing!
         </p>
         <a
           className="App-link"
