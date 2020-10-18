@@ -2,7 +2,6 @@
 
 .App {
   height: 100%;
-  background-color: "#1E1E1E";
   text-align: center;
   font-family: 'Ubuntu Mono', monospace;
 }
@@ -14,12 +13,12 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 10s linear;
+    animation: App-logo-spin infinite 1s linear;
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1E1E1E;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
