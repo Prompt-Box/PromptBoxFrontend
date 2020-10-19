@@ -11,18 +11,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Logo />
-        <Typist>
-          <Typist.Delay ms={100} />
-          PromptBox! Testing!
-        </Typist>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p id="entername">enter name:</p>
+
       </header>
     </div>
   );

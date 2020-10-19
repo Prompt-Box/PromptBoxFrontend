@@ -7,20 +7,38 @@
 }
 
 #Logo {
-  border: solid white 5px;
-  height: 150px;
-  width: 685px;
+  position: absolute;
+  top: 100px;
+  display: inline-block;
+  height: 180px;
+  width: 722px;
   pointer-events: none;
+  right: 50%;
+  margin-right: -280px;
+}
+
+#entername {
+  position: absolute;
+  top: 350px;
+}
+
+#logopic {
+  float: left;
+  margin: 15px 0 15px 0;
 }
 
 #title {
-  font-size: 64px;
-  float: right;
+  display: block;
+  font-size: 95px;
+  float: left;
+  margin: 10px 0 20px;
 }
 
 #subtitle {
-  font-size: 36px;
-  float: right;
+  text-align: left;
+  display: block;
+  font-size: 34px;
+  margin: 0;
 }
 
 .App-header {

@@ -4,13 +4,22 @@ import Typist from 'react-typist';
 function Logo() {
 	return (
 		<div id="Logo">
-			<img src="https://i.imgur.com/JJ0Sjjn.png" height="150px"></img>
-			<Typist cursor={{ hideWhenDone: true }}>
-				<Typist.Delay ms={100} />
-				<p id="title"><b>prompt box</b></p>
-				<Typist.Delay ms={300} />
-				<p id="subtitle"><b>the reverse turing test game</b></p>
-			</Typist>
+			<img id="logopic" src="https://i.imgur.com/JJ0Sjjn.png" height="150px"></img>
+
+				<p id="title"><b>
+					<Typist cursor={{hideWhenDone:true}}>
+						<Typist.Delay ms={100} />
+						prompt box
+					</Typist>
+				</b></p>
+
+				<p id="subtitle">
+					<Typist cursor={{show: false}}>
+						<Typist.Delay ms={1500} />
+						the reverse turing test game
+					</Typist>
+				</p>
+
 		</div>
 		)
 }
