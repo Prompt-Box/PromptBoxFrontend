@@ -3,7 +3,7 @@ import Typist from 'react-typist';
 
 function Logo() {
 	return (
-		<div width="685px" height="150px">
+		<div>
 			<img src="https://i.imgur.com/JJ0Sjjn.png" height="150px"></img>
 			<Typist cursor={{ hideWhenDone: true }}>
 				<Typist.Delay ms={100} />
