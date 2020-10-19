@@ -6,7 +6,7 @@
   font-family: 'Ubuntu Mono', monospace;
 }
 
-.Logo {
+#Logo {
   border: solid white 5px;
   height: 150px;
   width: 685px;
