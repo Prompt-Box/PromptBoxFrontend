@@ -1,4 +1,5 @@
 import React from 'react';
+import Typist from 'react-typist';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,9 +10,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src="https://i.imgur.com/N4C08eE.png" className="App-logo" alt="logo" />
-        <p>
+        <Typist>
           PromptBox! Testing!
-        </p>
+        </Typist>
         <a
           className="App-link"
           href="https://reactjs.org"
