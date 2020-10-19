@@ -1,6 +1,6 @@
 import React from 'react';
 import Typist from 'react-typist';
-import Logo from 'Logo';
+import Logo from './Logo';
 import logo from './logo.svg';
 import './App.css';
 
