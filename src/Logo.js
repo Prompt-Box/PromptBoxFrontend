@@ -10,6 +10,7 @@ function Logo() {
 				<p id="title"><b>prompt box</b></p>
 				<Typist.Delay ms={300} />
 				<p id="subtitle"><b>the reverse turing test game</b></p>
+			</Typist>
 		</div>
 		)
 }
