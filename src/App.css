@@ -13,11 +13,13 @@
 }
 
 #title {
-  font-size: 48px;
+  font-size: 64px;
+  float: right;
 }
 
 #subtitle {
-  font-size: 16px;
+  font-size: 36px;
+  float: right;
 }
 
 .App-header {
