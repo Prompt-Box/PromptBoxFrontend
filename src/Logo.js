@@ -4,7 +4,7 @@ import Typist from 'react-typist';
 function Logo() {
 	return (
 		<div id="Logo">
-			<img id="logopic" src="https://i.imgur.com/JJ0Sjjn.png" height="150px"></img>
+			<img id="logopic" alt="PromptBox: The Reverse Turing Test Game"src="https://i.imgur.com/JJ0Sjjn.png" height="150px"></img>
 
 				<p id="title"><b>
 					<Typist cursor={{hideWhenDone:true}}>
