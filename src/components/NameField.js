@@ -7,19 +7,20 @@ function NameField(props) {
 	const handleSubmit = (event) => {
 	    event.preventDefault()
 	    alert(`Welcome to Prompt Box, ${name}!`)
+	    props.advanceState();
 	}
 
 	return(
 	    <div id="formbox">
 		    <form onSubmit={handleSubmit}>
-			    <p id="entername">enter name:</p>
+			    <p class="hometext">enter name:</p>
 			      <input
 				        type="text"
 				        value={name}
 				        onChange={event => setName(event.target.value)}
 				  />
 			    <input type="submit" value="enter lobby" />
-			    <button>how to play</button>
+			    <button id="howtoplay" type="button" onClick={props.turnTutorialOn}>how to play</button>
 		    </form>	
 	    </div>
 	)
