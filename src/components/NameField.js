@@ -5,8 +5,8 @@ function NameField(props) {
 	const [name, setName] = useState("")
 	
 	const handleSubmit = (event) => {
-	    event.preventDefault()
-	    alert(`Welcome to Prompt Box, ${name}!`)
+	    event.preventDefault();
+	    props.setName(name);
 	    props.advanceState();
 	}
 

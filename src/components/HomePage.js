@@ -19,7 +19,7 @@ function HomePage(props) {
 		<div id="homepage">
 	        <Logo />
 	        {tutorialActive ? <Tutorial turnTutorialOff={turnTutorialOff}/>
-	        				: <NameField advanceState={props.advanceState} turnTutorialOn={turnTutorialOn}/>}
+	        				: <NameField setName = {props.setName} advanceState={props.advanceState} turnTutorialOn={turnTutorialOn}/>}
 	    </div>
 	)
 }
