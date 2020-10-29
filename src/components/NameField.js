@@ -13,13 +13,14 @@ function NameField(props) {
 	return(
 	    <div id="formbox">
 		    <form onSubmit={handleSubmit}>
-			    <p class="hometext">enter name:</p>
-			      <input
+			    <p className="hometext">enter name:</p>
+			      <input className="namebox"
+			      		maxLength="15"
 				        type="text"
 				        value={name}
 				        onChange={event => setName(event.target.value)}
 				  />
-			    <input type="submit" value="enter lobby" />
+			    <input type="submit" className="usernamesubmit" value="enter lobby" />
 			    <button id="howtoplay" type="button" onClick={props.turnTutorialOn}>how to play</button>
 		    </form>	
 	    </div>

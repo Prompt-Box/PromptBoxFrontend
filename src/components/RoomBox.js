@@ -2,9 +2,9 @@ import React from 'react';
 
 function RoomBox(props) {
 	return(
-		<div class="RoomBox">
+		<div className="RoomBox">
 			<p id="roomtitle">{props.roomName}</p>
-			<button type="button">join game</button>
+			<button className="join" type="button">join game</button>
 		</div>
 	)
 }

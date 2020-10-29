@@ -33,7 +33,7 @@ body {
   margin-left: -175px;
 }
 
-    input[type=text] {
+    .namebox {
       outline: none;
         background-color: #1E1E1E;
         color: white;
@@ -47,7 +47,7 @@ body {
       padding-left: 10px;
     }
 
-    input[type=submit] {
+    .usernamesubmit {
       outline: none;
         background-color: #1E1E1E;
         color: #38698E;
@@ -61,7 +61,7 @@ body {
       float: left;
     }
 
-    input[type=submit]:hover {
+    .usernamesubmit:hover {
       cursor: pointer;
       background-color: #38698E;
       color: #1E1E1E;
@@ -129,11 +129,12 @@ body {
 
 .RoomBox {
   display: inline-block;
-  width: 500px;
-  height: 150px;
-  background-color: grey;
+  width: 300px;
+  height: 125px;
+  background-color: none;
+  border: 3px solid white;
   border-radius: 10px;
-  margin: 25px;
+  margin: 0 25px 50px 25px;
 }
 
 #welcome {
@@ -143,23 +144,102 @@ body {
   left: 0;
   right: 0;
   margin: 0;
-  top: 100px;
+  top: 50px;
   font-size: 48px;
 }
     
     #roomtitle {
       margin: 0 auto;
-      font-size: 32px;
+      font-size: 28px;
       padding: 15px;
     }
 
     #roomflex {
       position: absolute;
-      top: 200px;
+      top: 150px;
+      height: calc(100vh - 300px);
+      overflow-y: auto;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+    }
+
+    .join {
+      outline: none;
+        background-color: #1E1E1E;
+        color: #38698E;
+      border: solid 3px #38698E;
+      border-radius: 6px;
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: 24px;
+      width: 170px;
+      height: 45px;
+    }
+
+    .createform {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: -250px;
+      width: 500px;
+    }
+
+    .createroombox {
+      outline: none;
+        background-color: #1E1E1E;
+        color: white;
+      border: solid 3px white;
+      border-radius: 6px;
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: 28px;
+      display: inline;
+      width: 250px;
+      height: 40px;
+      padding-left: 10px;
+      margin-right: 50px;   
+    }
+
+    .create {
+      display: inline;
+      outline: none;
+        background-color: #1E1E1E;
+        color: #38698E;
+      border: solid 3px #38698E;
+      border-radius: 6px;
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: 24px;
+      width: 170px;
+      height: 45px;
+    }
+
+    .create:hover {
+      cursor: pointer;
+      background-color: #38698E;
+      color: #1E1E1E;  
+    }
+
+    .RoomBox:nth-child(even) .join {
+      color: #3E9A88;
+      border: solid 3px #3E9A88;
+    }
+
+    .RoomBox:nth-child(even) .join:hover {
+      cursor: pointer;
+      background-color: #3E9A88;
+      color: #1E1E1E;
+    }
+
+    .join:hover {
+      cursor: pointer;
+      background-color: #38698E;
+      color: #1E1E1E;
+    }
+
+    .filler {
+      width: 306px;
+      height: 0;
+      margin: 25px;
     }
 
     #back {
@@ -181,6 +261,30 @@ body {
       background-color: #3E9A88;
       color: #1E1E1E;
     }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  width: 1px;
+  background: white;
+  border-radius: 10px;
+  border: 3px solid #1E1E1E;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CCCCCC;
+}
+
 
 .App-header {
   background-color: #1E1E1E;

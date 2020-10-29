@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import Lobby from './components/Lobby';
+import './Reset.css'
 import './App.css';
 
 // Test
