@@ -156,13 +156,23 @@ body {
 
     #roomflex {
       position: absolute;
-      top: 150px;
+      top: 175px;
       height: calc(100vh - 300px);
       overflow-y: auto;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+    }
+
+    .loading {
+      color: #A9A9A9;
+      font-size: 36px;
+      display: block;
+      text-align: center;
+      position: fixed;
+      top: 45%;
+      left: 45%;
     }
 
     .join {

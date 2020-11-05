@@ -1,7 +1,8 @@
-import React, { useState, useReducer } from 'react';
-import Logo from "./Logo";
+import React, { useState, useEffect, useReducer } from 'react';
 import RoomBox from "./RoomBox"
 import CreateRoom from "./CreateRoom"
+
+// {rooms.map(name => (<RoomBox key={name} roomName={name} />))}
 
 function Lobby(props) {
 
@@ -9,24 +10,50 @@ function Lobby(props) {
 
 	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
+	const [loading, setLoading] = useState(true);
+
+	let timer = setInterval(console.log(rooms), 1000)
+
 	const addRoom = (newRoom) => {
-		let local = rooms;
-		local.push(newRoom);
-		setRooms(local);
-		console.log(rooms);
-		forceUpdate();
+		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/create/${newRoom}/${props.username}`
+		fetch(url, {
+			method: 'POST'
+		}).then(response => response.json()) 
+	  	  .then(data => {
+		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
+		  	console.log(data) //don't log an rsion won't work and object will not be dumped
+	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
+
+	  forceUpdate();
 	}
+
+	useEffect(() => {
+		const url = "https://prompt-box-backend.herokuapp.com/api/lobby"
+	        fetch(url)
+	        	.then(response => response.json())
+	        	.then(data => {
+				  setRooms(data.lobby);
+				  setLoading(false);
+				  console.log(rooms);
+				})
+				.catch((error) => {
+				  console.error('Error:', error);
+				});
+			return console.log("unmounted");
+	}, [ignored])
 
 	return(
 		<div id='Lobby'>
 			<h1 id="welcome">Welcome to Prompt Box, {props.username}!</h1>
-			<div id="roomflex">
-				{rooms.map(name => (<RoomBox key={name} roomName={name} />))}
-				<div className="filler"></div>
-				<div className="filler"></div>
-				<div className="filler"></div>
-				<div className="filler"></div>
-			</div>
+			{loading ? <p className="loading">Loading...</p> : 
+				<div id="roomflex">
+					{rooms.map(room => (<RoomBox key={room.id} roomName={room.title} />))}
+					<div className="filler"></div>
+					<div className="filler"></div>
+					<div className="filler"></div>
+					<div className="filler"></div>
+				</div>}
+
 			<CreateRoom addRoom={addRoom}/>
 		</div>
 	)
