@@ -23,8 +23,8 @@ function Lobby(props) {
 		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
 		  	console.log(data) //don't log an rsion won't work and object will not be dumped
 	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
-
-	  forceUpdate();
+	  props.setLobby(newRoom);
+	  props.advanceState();
 	}
 
 	useEffect(() => {
@@ -32,7 +32,7 @@ function Lobby(props) {
 	        fetch(url)
 	        	.then(response => response.json())
 	        	.then(data => {
-				  setRooms(data.lobby);
+				  setRooms(data.lobbies);
 				  setLoading(false);
 				  console.log(rooms);
 				})
@@ -47,7 +47,7 @@ function Lobby(props) {
 			<h1 id="welcome">Welcome to Prompt Box, {props.username}!</h1>
 			{loading ? <p className="loading">Loading...</p> : 
 				<div id="roomflex">
-					{rooms.map(room => (<RoomBox key={room.id} roomName={room.title} />))}
+					{rooms.map(room => (<RoomBox key={room.title} username = {props.username} roomName={room.title} setLobby={props.setLobby} advanceState = {props.advanceState}/>))}
 					<div className="filler"></div>
 					<div className="filler"></div>
 					<div className="filler"></div>

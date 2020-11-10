@@ -59,6 +59,7 @@ body {
       height: 45px;
       margin-top: 40px;
       float: left;
+      -webkit-appearance: none;
     }
 
     .usernamesubmit:hover {
@@ -79,7 +80,8 @@ body {
       width: 170px;
       height: 45px;
       margin-top: 40px;
-      float: right; 
+      float: right;
+      -webkit-appearance: none; 
     }
 
     #howtoplay:hover {
@@ -185,6 +187,7 @@ body {
         font-size: 24px;
       width: 170px;
       height: 45px;
+      -webkit-appearance: none;
     }
 
     .createform {
@@ -221,6 +224,7 @@ body {
         font-size: 24px;
       width: 170px;
       height: 45px;
+      -webkit-appearance: none;
     }
 
     .create:hover {
