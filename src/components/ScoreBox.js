@@ -2,8 +2,8 @@ import React from 'react';
 
 function ScoreBox(props) {
 	return (
-		<div>
-			<h1>{props.name}</h1>
+		<div className={`ScoreBox${props.id}`}>
+			<h2>{props.name}</h2>
 			<h1>{props.score}</h1>
 		</div>
 		)

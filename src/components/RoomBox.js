@@ -12,6 +12,7 @@ function RoomBox(props) {
 		  	console.log(data) //don't log an rsion won't work and object will not be dumped
 	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
 		props.setLobby(props.roomName);
+		props.setPlayer1(false);
         props.advanceState();
     }
 

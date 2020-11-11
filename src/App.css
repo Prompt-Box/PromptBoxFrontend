@@ -276,6 +276,79 @@ body {
       color: #1E1E1E;
     }
 
+.ScoreBox1 {
+  position: absolute;
+  left: 150px;
+  top: 30%;
+}
+
+.ScoreBox2 {
+  position: absolute;
+  right: 150px;
+  top: 30%;
+}
+
+
+.ScoreBox1 h1, .ScoreBox2 h1 {
+  font-size: 56px;
+  color: white;
+}
+
+.ScoreBox1 h2 {
+  font-size: 48px;
+  color: #3E9A88;
+}
+
+.ScoreBox2 h2 {
+  font-size: 48px;
+  color: #3E9A88;
+}
+
+.Input {
+  width: 750px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  right: 50%;
+  margin-right: -375px;
+}
+
+.inputbox {
+  margin: 50px auto;
+  outline: none;
+  background-color: #1E1E1E;
+  color: white;
+  border: solid 3px white;
+  border-radius: 6px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 28px;
+  display: block;
+  width: 475px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.Input p {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+}
+
+.inputsubmit {
+      display: inline;
+      outline: none;
+        background-color: #1E1E1E;
+        color: #38698E;
+      border: solid 3px #38698E;
+      border-radius: 6px;
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: 24px;
+      width: 170px;
+      height: 45px;
+      -webkit-appearance: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

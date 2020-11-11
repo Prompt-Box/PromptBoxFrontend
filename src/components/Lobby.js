@@ -24,6 +24,7 @@ function Lobby(props) {
 		  	console.log(data) //don't log an rsion won't work and object will not be dumped
 	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
 	  props.setLobby(newRoom);
+	  props.setPlayer1(true);
 	  props.advanceState();
 	}
 
@@ -47,7 +48,7 @@ function Lobby(props) {
 			<h1 id="welcome">Welcome to Prompt Box, {props.username}!</h1>
 			{loading ? <p className="loading">Loading...</p> : 
 				<div id="roomflex">
-					{rooms.map(room => (<RoomBox key={room.title} username = {props.username} roomName={room.title} setLobby={props.setLobby} advanceState = {props.advanceState}/>))}
+					{rooms.map(room => (<RoomBox key={room.title} setPlayer1={props.setPlayer1} username = {props.username} roomName={room.title} setLobby={props.setLobby} advanceState = {props.advanceState}/>))}
 					<div className="filler"></div>
 					<div className="filler"></div>
 					<div className="filler"></div>

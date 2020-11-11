@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useRef } from 'react';
 import ScoreBox from "./ScoreBox"
+import Input from "./Input"
+import Guess from "./Guess"
 
 function GameBox(props) {
 
@@ -11,8 +13,27 @@ function GameBox(props) {
 	const [p2text, setPlayer2Text] = useState("");
 	const [turn, setTurn] = useState(true);
 	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+	const [input, setInput] = useState("");
 
-	var tick = setInterval(forceUpdate, 30000);
+	const timer = useRef(null)
+
+	const advanceTurn = () => {
+		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/turn`
+		fetch(url, {
+			method: 'POST'
+		}).then(response => response.json()) 
+	  	  .then(data => {
+		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
+		  	console.log(data) //don't log an rsion won't work and object will not be dumped
+	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
+	}
+
+	useEffect(() => {
+		timer.current = setInterval(forceUpdate, 1000);
+		return function cleanup() {
+			clearInterval(timer.current);
+		}
+	}, [])
 
 	useEffect(() => {
 		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}`
@@ -25,19 +46,21 @@ function GameBox(props) {
 				  setPlayer2Score(data.game.player2_score);
 				  setPlayer1Text(data.game.player1_text);
 				  setPlayer2Text(data.game.player2_text);
+				  setTurn(data.game.player1_turn);
 				  console.log("refresh");
 				})
 				.catch((error) => {
 				  console.error('Error:', error);
 				});
-		return function cleanup() {
-			clearInterval(tick);
-		}
 	}, [ignored])
 	return (
 		<div>
-			<ScoreBox name={p1} score={p1score}/>
-			<ScoreBox name={p2} score={p2score}/>
+			<ScoreBox id={1} name={p1} score={p1score}/>
+			<ScoreBox id={2} name={p2} score={p2score}/>
+			{props.player1 === turn ? 
+				<Input advanceTurn={advanceTurn} setInput={setInput} /> :
+				<Guess id={props.id} name={props.name} advanceTurn={advanceTurn} input={input}/>
+			}
 		</div>
 		)
 }

@@ -11,6 +11,7 @@ function App() {
 
   const [flowState, setFlowState] = useState(0);
   const [username, setUsername] = useState("Player");
+  const [player1, setPlayer1] = useState(true);
   const [lobby, setLobby] = useState("");
 
   const advanceState = () => {
@@ -24,8 +25,8 @@ function App() {
   return (
     <div className="App">
         {flowState === 0 ? <HomePage advanceState={advanceState} setName = {setName}/> : null}
-        {flowState === 1 ? <Lobby advanceState={advanceState} username={username} setLobby={setLobby}/> : null}
-        {flowState === 2 ? <Game advanceState={advanceState} username={username} id={lobby}/> : null}
+        {flowState === 1 ? <Lobby setPlayer1={setPlayer1} advanceState={advanceState} username={username} setLobby={setLobby}/> : null}
+        {flowState === 2 ? <Game player1={player1} advanceState={advanceState} username={username} id={lobby}/> : null}
     </div>
   );
 }
