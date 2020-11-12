@@ -7,19 +7,28 @@ function Input(props) {
 
 	const handleSubmit = (event) => {
 	    event.preventDefault();
+
+	    const url = `https://prompt-box-backend.herokuapp.com/api/games/text/${props.id}/${props.name}?text=${input}`
+		fetch(url, {
+				method: 'POST'
+			}).then(response => response.json()) 
+		  	  .then(data => {
+			  	console.log("Success: ")
+			  	console.log(data)
+		  	}).catch((error) => console.log("Error: "+ error))
+		  	  
 	    setSubmitted(true);
-	    props.setInput(input);
-	    props.advanceTurn();
 	}
 
 	return (
 		<div className="Input">
 			<form onSubmit={handleSubmit}>
-				<p>{submitted ? "Waiting for other player to guess" : "Type something!"}</p>
+				<p>{submitted ? "Waiting for your opponent to submit..." : "Type something for your opponent to guess!"}</p>
 				<input disabled={submitted}
 					className="inputbox"
 					type="text"
 					value={input}
+					required
 					onChange={event => setInput(event.target.value)} />
 				<input disabled={submitted} type="submit" className="inputsubmit" value="submit" />
 			</form>

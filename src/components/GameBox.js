@@ -12,20 +12,31 @@ function GameBox(props) {
 	const [p1text, setPlayer1Text] = useState("");
 	const [p2text, setPlayer2Text] = useState("");
 	const [turn, setTurn] = useState(true);
+	const [round, setRound] = useState(1);
 	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-	const [input, setInput] = useState("");
 
 	const timer = useRef(null)
 
 	const advanceTurn = () => {
 		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/turn`
 		fetch(url, {
-			method: 'POST'
-		}).then(response => response.json()) 
-	  	  .then(data => {
-		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
-		  	console.log(data) //don't log an rsion won't work and object will not be dumped
-	  	}).catch((error) => console.log("SaveCreds saveCreds: Fetch Failure (is server up?): "+ error))
+				method: 'POST'
+			}).then(response => response.json()) 
+		  	  .then(data => {
+			  	console.log("Success: ")
+			  	console.log(data)
+		  	}).catch((error) => console.log("Error: "+ error))
+	}
+
+	const advanceRound = () => {
+		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/round`
+		fetch(url, {
+				method: 'POST'
+			}).then(response => response.json()) 
+		  	  .then(data => {
+			  	console.log("Success: ")
+			  	console.log(data)
+		  	}).catch((error) => console.log("Error: "+ error))
 	}
 
 	useEffect(() => {
@@ -47,7 +58,9 @@ function GameBox(props) {
 				  setPlayer1Text(data.game.player1_text);
 				  setPlayer2Text(data.game.player2_text);
 				  setTurn(data.game.player1_turn);
+				  setRound(data.game.round);
 				  console.log("refresh");
+				  console.log(data);
 				})
 				.catch((error) => {
 				  console.error('Error:', error);
@@ -57,9 +70,10 @@ function GameBox(props) {
 		<div>
 			<ScoreBox id={1} name={p1} score={p1score}/>
 			<ScoreBox id={2} name={p2} score={p2score}/>
-			{props.player1 === turn ? 
-				<Input advanceTurn={advanceTurn} setInput={setInput} /> :
-				<Guess id={props.id} name={props.name} advanceTurn={advanceTurn} input={input}/>
+			<h1 class="Round">Round {round}</h1>
+			{p1text === "" || p2text === "" ? 
+				<Input id={props.id} name={props.name} /> :
+				<Guess id={props.id} name={props.name} turn={turn} advanceTurn={advanceTurn} advanceRound={advanceRound}/>
 			}
 		</div>
 		)

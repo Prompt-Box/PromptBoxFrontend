@@ -305,6 +305,7 @@ body {
 }
 
 .Input {
+  text-align: center;
   width: 750px;
   height: 500px;
   position: absolute;
@@ -348,6 +349,42 @@ body {
       width: 170px;
       height: 45px;
       -webkit-appearance: none;
+}
+
+.Round {
+  color: white;
+  font-size: 36px;
+  display: block;
+  text-align: center;
+  top: 100px;
+}
+
+.GuessButton {
+      outline: none;
+      background-color: #1E1E1E;
+      color: white;
+      border: solid 3px white;
+      border-radius: 6px;
+      font-family: 'Ubuntu Mono', monospace;
+      font-size: 24px;
+      display: block;
+      width: 500px;
+      height: 60px;
+      margin: 40px auto;
+      -webkit-appearance: none;
+      cursor: pointer;
+}
+
+.correct {
+    background-color: #3E9A88;
+    color: #1E1E1E;
+    border: solid 3px #3E9A88;
+}
+
+.incorrect {
+    background-color: #9A3E3E;
+    color: #1E1E1E;
+    border: solid 3px #9A3E3E;
 }
 
 /* width */
