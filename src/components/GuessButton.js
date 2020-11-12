@@ -22,19 +22,19 @@ function GuessButton(props) {
 					  	  .then(data => {
 						  	console.log("Success: " + data)
 					  	}).catch((error) => console.log("Error: "+ error))
+
+						if (props.turn) {
+							props.advanceTurn();
+						}
+						else {
+							props.advanceRound();
+						}
 			  	}
 			  	else {
 			  		setCorrect(2);
 			  	}
 
 		  	}).catch((error) => console.log("Error: "+ error))
-
-		if (props.turn) {
-			props.advanceTurn();
-		}
-		else {
-			props.advanceRound();
-		}
 
 	}
 
