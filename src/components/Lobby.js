@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useRef } from 'react';
 import RoomBox from "./RoomBox"
 import CreateRoom from "./CreateRoom"
 
@@ -12,7 +12,14 @@ function Lobby(props) {
 
 	const [loading, setLoading] = useState(true);
 
-	let timer = setInterval(console.log(rooms), 1000)
+	const timer = useRef(null)
+
+	useEffect(() => {
+		timer.current = setInterval(forceUpdate, 3000);
+		return function cleanup() {
+			clearInterval(timer.current);
+		}
+	}, [])
 
 	const addRoom = (newRoom) => {
 		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/create/${newRoom}/${props.username}`
