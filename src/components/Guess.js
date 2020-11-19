@@ -10,7 +10,15 @@ function Guess(props) {
 
 	useEffect(() => {
 		const url = `https://prompt-box-backend.herokuapp.com/api/games/guess/${props.id}/${props.name}`
-		fetch(url)
+		fetch(url, {
+			headers: {
+		        'Accept': 'application/json',
+		        'Content-Type': 'application/json',
+		    },
+			body: JSON.stringify({
+		         user: "USERNAME:PASSWORD"
+		    })
+		})
 		    .then(response => response.json())
 		    .then(data => {
 		            	setStatements(data.text);
