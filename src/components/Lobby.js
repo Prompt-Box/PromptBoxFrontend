@@ -24,14 +24,7 @@ function Lobby(props) {
 	const addRoom = (newRoom) => {
 		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/create/${newRoom}/${props.username}`
 		fetch(url, {
-			method: 'POST',
-			headers: {
-		        'Accept': 'application/json',
-		        'Content-Type': 'application/json',
-		    },
-			body: JSON.stringify({
-		         user: "USERNAME:PASSWORD"
-		    })
+			method: 'POST'
 		}).then(response => response.json()) 
 	  	  .then(data => {
 		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
@@ -44,15 +37,7 @@ function Lobby(props) {
 
 	useEffect(() => {
 		const url = "https://prompt-box-backend.herokuapp.com/api/lobby"
-	        fetch(url, {
-		        headers: {
-			        'Accept': 'application/json',
-			        'Content-Type': 'application/json',
-			    },
-				body: JSON.stringify({
-			         user: "USERNAME:PASSWORD"
-			    })	
-	        })
+	        fetch(url)
 	        	.then(response => response.json())
 	        	.then(data => {
 				  setRooms(data.lobbies);

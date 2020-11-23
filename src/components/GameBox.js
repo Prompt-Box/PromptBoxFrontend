@@ -70,10 +70,16 @@ function GameBox(props) {
 		<div>
 			<ScoreBox id={1} name={p1} score={p1score}/>
 			<ScoreBox id={2} name={p2} score={p2score}/>
-			<h1 class="Round">Round {round}</h1>
-			{p1text === "" || p2text === "" ? 
-				<Input id={props.id} name={props.name} /> :
-				<Guess id={props.id} name={props.name} turn={turn} advanceTurn={advanceTurn} advanceRound={advanceRound}/>
+			<h1 class="Round">{round === -1 ? "Game Over" : `Round ${round}`}</h1>
+			{round !== -1 ?
+				<>
+				{p1text === "" || p2text === "" ? 
+					<Input id={props.id} name={props.name} /> :
+					<Guess id={props.id} name={props.name} turn={turn} advanceTurn={advanceTurn} advanceRound={advanceRound}/>
+				}
+				</>
+				:
+				<h1>{p1score > p2score ? `${p1} wins!` : `${p2} wins!`}</h1>
 			}
 		</div>
 		)

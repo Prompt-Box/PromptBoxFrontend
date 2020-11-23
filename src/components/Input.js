@@ -10,14 +10,7 @@ function Input(props) {
 
 	    const url = `https://prompt-box-backend.herokuapp.com/api/games/text/${props.id}/${props.name}?text=${input}`
 		fetch(url, {
-				method: 'POST',
-				headers: {
-		        'Accept': 'application/json',
-		        'Content-Type': 'application/json',
-			    },
-				body: JSON.stringify({
-			         user: "USERNAME:PASSWORD"
-			    })
+				method: 'POST'
 			}).then(response => response.json()) 
 		  	  .then(data => {
 			  	console.log("Success: ")
