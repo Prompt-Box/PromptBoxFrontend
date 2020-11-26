@@ -3,9 +3,10 @@ import React from 'react';
 function RoomBox(props) {
 
 	const join = () => {
-		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/join/${props.roomName}/${props.username}`
+		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/join`
 		fetch(url, {
-			method: 'POST'
+			method: 'POST',
+			body: JSON.stringify({"title": ${newRoom}, "name": ${props.username}})
 		}).then(response => response.json()) 
 	  	  .then(data => {
 		  	console.log("SaveCreds saveCreds: Fetch Response data: ")

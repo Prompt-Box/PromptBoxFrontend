@@ -22,9 +22,10 @@ function Lobby(props) {
 	}, [])
 
 	const addRoom = (newRoom) => {
-		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/create/${newRoom}/${props.username}`
+		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/create`
 		fetch(url, {
-			method: 'POST'
+			method: 'POST',
+			body: JSON.stringify({"title": ${newRoom}, "name": ${props.username}})
 		}).then(response => response.json()) 
 	  	  .then(data => {
 		  	console.log("SaveCreds saveCreds: Fetch Response data: ")
