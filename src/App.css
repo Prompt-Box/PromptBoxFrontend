@@ -95,6 +95,13 @@ body {
       font-size: 28px;
     }
 
+    .blurb {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
     #logopic {
       float: left;
       margin: 15px 0 15px 0;
@@ -122,11 +129,11 @@ body {
 }
 
 #Tutorial {
-  width: 350px;
+  width: 600px;
   position: absolute;
   top: 350px;
   left: 50%;
-  margin-left: -175px;
+  margin-left: -300px;
 }
 
 .RoomBox {
