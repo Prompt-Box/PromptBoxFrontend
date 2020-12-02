@@ -18,6 +18,10 @@ function App() {
   	setFlowState(flowState + 1);
   }
 
+  const recall = () => {
+    setFlowState(1);
+  }
+
   const setName = (name) => {
     setUsername(name);
   }
