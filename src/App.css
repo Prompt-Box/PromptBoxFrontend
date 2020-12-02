@@ -391,14 +391,14 @@ body {
   text-align: center;
   color: white;
   font-size: 24px;
-  margin-top: 40vh;
+  margin-top: 30vh;
 }
 
 .Winner {
   text-align: center;
   color: white;
   font-size: 48px;
-  margin-top: 40vh;
+  margin-top: 30vh;
 }
 
 .returnlobby {
@@ -410,7 +410,7 @@ body {
   border-radius: 6px;
     font-family: 'Ubuntu Mono', monospace;
     font-size: 24px;
-  width: 300px;
+  width: 250px;
   height: 45px;
   -webkit-appearance: none;  
 }
