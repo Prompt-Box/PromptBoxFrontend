@@ -387,6 +387,34 @@ body {
     border: solid 3px #9A3E3E;
 }
 
+.Waiting {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  margin-top: 40vh;
+}
+
+.Winner {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  margin-top: 40vh;
+}
+
+.returnlobby {
+  display: inline;
+  outline: none;
+    background-color: #1E1E1E;
+    color: #38698E;
+  border: solid 3px #38698E;
+  border-radius: 6px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 24px;
+  width: 300px;
+  height: 45px;
+  -webkit-appearance: none;  
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

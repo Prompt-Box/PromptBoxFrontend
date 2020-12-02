@@ -23,7 +23,7 @@ function Guess(props) {
 
 	return (
 		<div>
-		{waiting ? <p>Hold on...</p> :
+		{waiting ? <p class="Waiting">Hold on...</p> :
 					<div className="Input">
 						<p>{submitted ? "Waiting for your opponent to guess..." : "Here are your choices!" }</p>
 						{statements.map(text => <GuessButton
