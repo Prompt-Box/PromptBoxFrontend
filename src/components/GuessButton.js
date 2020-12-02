@@ -39,7 +39,7 @@ function GuessButton(props) {
 	}
 
 	return (
-		<button type="button"
+		<button id="guesser" type="button"
 		disabled={props.submitted}
 		onClick={handleClick}
 		className={`GuessButton ${correct === 1 ? "correct" : ""} ${correct === 2 ? "incorrect" : ""}`}>{props.text}</button>
