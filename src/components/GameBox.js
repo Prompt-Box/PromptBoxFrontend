@@ -79,7 +79,10 @@ function GameBox(props) {
 				}
 				</>
 				:
-				<h1>{p1score > p2score ? `${p1} wins!` : `${p2} wins!`}</h1>
+				<>
+				<h1 className="Winner">{p1score == p2score ? `It's a tie!` : p1score > p2score ? `${p1} wins!` : `${p2} wins!`}</h1>
+				<button className="returnlobby" onClick={props.advanceState}>Return to Lobby</button>
+				</>
 			}
 		</div>
 		)

@@ -32,7 +32,7 @@ function Game(props) {
 	}, [ignored])
 	return (
 		<div>
-		{waiting ? <h1>Waiting...</h1> : <GameBox player1={props.player1} id={props.id} name={props.username}/>}
+		{waiting ? <h1 class="Waiting">Waiting...</h1> : <GameBox advanceState={props.advanceState} player1={props.player1} id={props.id} name={props.username}/>}
 		</div>
 		)
 }
