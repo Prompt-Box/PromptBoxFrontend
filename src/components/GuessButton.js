@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import correctSfx from './sounds/correct.mp3';
+import incorrectSfx from './sounds/incorrect.mp3';
+import useSound from 'use-sound';
 
 function GuessButton(props) {
 
 	const [correct, setCorrect] = useState(0);
+
+	const [playC] = useSound(correctSfx);
+	const [playI] = useSound(incorrectSfx);
 
 	const handleClick = () => {
 
@@ -16,6 +22,7 @@ function GuessButton(props) {
 
 			  	if (data.result == 1) {
 			  		setCorrect(1);
+			  		playC;
 			  		fetch(url2, {
 							method: 'POST'
 						}).then(response => response.json()) 
@@ -24,6 +31,7 @@ function GuessButton(props) {
 					  	}).catch((error) => console.log("Error: "+ error))
 			  	}
 			  	else {
+			  		playI;
 			  		setCorrect(2);			  
 			  	}
 
