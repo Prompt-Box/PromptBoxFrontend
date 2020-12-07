@@ -38,12 +38,7 @@ function GuessButton(props) {
 			  		setCorrect(2);			  
 			  	}
 
-				if (props.turn) {
-					props.advanceTurn();
-				}
-				else {
-					props.advanceRound();
-				}
+				props.advanceTurn();
 
 		  	}).catch((error) => console.log("Error: "+ error))
 

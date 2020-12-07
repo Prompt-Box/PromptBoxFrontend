@@ -14,6 +14,8 @@ function GameBox(props) {
 	const [p1text, setPlayer1Text] = useState("");
 	const [p2text, setPlayer2Text] = useState("");
 	const [turn, setTurn] = useState(true);
+	const [p1hasGone, setP1HasGone] = useState(false);
+	const [p2hasGone, setP2HasGone] = useState(false);
 	const [round, setRound] = useState(1);
 	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -22,7 +24,7 @@ function GameBox(props) {
 	const timer = useRef(null)
 
 	const advanceTurn = () => {
-		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/turn`
+		const url = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/${props.name}/gone`
 		fetch(url, {
 				method: 'POST'
 			}).then(response => response.json()) 
@@ -63,6 +65,8 @@ function GameBox(props) {
 				  setPlayer2Text(data.game.player2_text);
 				  setTurn(data.game.player1_turn);
 				  setRound(data.game.round);
+				  setP1HasGone(data.game.player1_hasGone);
+				  setP2HasGone(data.game.player2_hasGone);
 				  console.log("refresh");
 				  console.log(data);
 				  if (round === -1) {
