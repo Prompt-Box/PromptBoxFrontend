@@ -71,6 +71,7 @@ function GameBox(props) {
 				  console.log(data);
 				  if (round === -1) {
 				  	playWin();
+				  	clearInterval(timer.current);
 				  }
 				})
 				.catch((error) => {
