@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import clickSfx from './sounds/click.mp3';
+import useSound from 'use-sound';
 
 function Input(props) {
 
 	const [input, setInput] = useState("")
 	const [submitted, setSubmitted] = useState(false);
 
+	const [playClick] = useSound(clickSfx);
+
 	const handleSubmit = (event) => {
+
+		playClick();
 	    event.preventDefault();
 
 	    const url = `https://prompt-box-backend.herokuapp.com/api/games/text/${props.id}/${props.name}?text=${input}`

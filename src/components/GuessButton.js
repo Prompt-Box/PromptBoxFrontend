@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import correctSfx from './sounds/correct.mp3';
 import incorrectSfx from './sounds/incorrect.mp3';
+import clickSfx from './sounds/click.mp3';
 import useSound from 'use-sound';
 
 function GuessButton(props) {
@@ -9,9 +10,11 @@ function GuessButton(props) {
 
 	const [playC] = useSound(correctSfx);
 	const [playI] = useSound(incorrectSfx);
+	const [playClick] = useSound(clickSfx);
 
 	const handleClick = () => {
 
+		playClick();
 		props.setSubmitted(true);
 
 		const url = `https://prompt-box-backend.herokuapp.com/api/games/check/${props.id}/${props.name}?text=${props.text}`
@@ -22,7 +25,7 @@ function GuessButton(props) {
 
 			  	if (data.result == 1) {
 			  		setCorrect(1);
-			  		playC;
+			  		playC();
 			  		fetch(url2, {
 							method: 'POST'
 						}).then(response => response.json()) 
@@ -31,7 +34,7 @@ function GuessButton(props) {
 					  	}).catch((error) => console.log("Error: "+ error))
 			  	}
 			  	else {
-			  		playI;
+			  		playI();
 			  		setCorrect(2);			  
 			  	}
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useReducer, useRef } from 'react';
 import ScoreBox from "./ScoreBox"
 import Input from "./Input"
 import Guess from "./Guess"
+import winSfx from './sounds/clap.mp3';
+import useSound from 'use-sound';
 
 function GameBox(props) {
 
@@ -14,6 +16,8 @@ function GameBox(props) {
 	const [turn, setTurn] = useState(true);
 	const [round, setRound] = useState(1);
 	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+
+	const [playWin] = useSound(winSfx);
 
 	const timer = useRef(null)
 
@@ -61,6 +65,9 @@ function GameBox(props) {
 				  setRound(data.game.round);
 				  console.log("refresh");
 				  console.log(data);
+				  if (round === -1) {
+				  	playWin();
+				  }
 				})
 				.catch((error) => {
 				  console.error('Error:', error);

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import clickSfx from './sounds/click.mp3';
+import useSound from 'use-sound';
 
 function NameField(props) {
 
 	const [name, setName] = useState("")
+
+	const [playClick] = useSound(clickSfx)
 	
 	const handleSubmit = (event) => {
+		playClick();
 	    event.preventDefault();
 	    props.setName(name);
 	    props.advanceState();

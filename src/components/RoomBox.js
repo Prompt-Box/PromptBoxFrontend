@@ -1,8 +1,13 @@
 import React from 'react';
+import clickSfx from './sounds/click.mp3';
+import useSound from 'use-sound';
 
 function RoomBox(props) {
 
+	const [playClick] = useSound(clickSfx)
+
 	const join = () => {
+		playClick();
 		const url = `https://prompt-box-backend.herokuapp.com/api/lobby/join/${props.roomName}/${props.username}`
 		fetch(url, {
 			method: 'POST'
