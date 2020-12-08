@@ -70,6 +70,14 @@ function GameBox(props) {
 				  console.log("refresh");
 				  console.log(data);
 				  if (round === -1) {
+				  	const url2 = `https://prompt-box-backend.herokuapp.com/api/games/${props.id}/end`
+					fetch(url2, {
+							method: 'DELETE'
+						}).then(response => response.json()) 
+					  	  .then(data => {
+						  	console.log("Success: ")
+						  	console.log(data)
+					  	}).catch((error) => console.log("Error: "+ error))
 				  	playWin();
 				  	clearInterval(timer.current);
 				  }
